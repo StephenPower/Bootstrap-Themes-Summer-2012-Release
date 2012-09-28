@@ -1,0 +1,169 @@
+.navbar {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: bold;
+  text-transform:uppercase;
+  margin:0;
+}
+
+ul {list-style-type: none;}
+
+.navbar a { text-decoration: none;}
+
+div.subnav .nav > li.active > a {
+  padding: 20px 15px;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  color: #000000;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+#AuctionsResult h5 {
+  color: #888888;
+}
+#AuctionsResult h6 {
+  color: #888888;
+}
+
+body {
+  margin-top: 4px;
+  list-style-type: none;
+  color: #222222;
+}
+
+.well {
+  color: #888888;
+  list-style-type: none;
+}
+
+a {
+  color: #336699;
+  text-decoration: underline;
+}
+
+#content {
+  min-height: 600px;
+}
+
+.SearchPageBox {
+  height: 30px;
+  padding: 10px;
+  background-color: #eeeeee;
+  margin: 0 0 10px 0;
+}
+
+.side-header {
+  color: #000000;
+  font-weight: bold;
+}
+
+ul.errorlist {
+  color: b94a48;
+  background-color: #f2dede;
+  border: 1px solid #953b39;
+  margin-left: 0;
+  padding: 5px;
+ list-style-type:none;
+}
+
+.text-error,
+.money {
+  color: #cc0000;
+}
+.carousel-caption {
+  position: relative;
+  font-size: x-small;
+  padding: 5px;
+}
+@media (max-width: 767px) {
+  .Left-Column {
+    max-width: 40px;
+    font-weight: bold;
+  }
+}
+div#myCarousel.carousel.span5.offset1 {
+  margin-left: 0;
+}
+.SearchTitle {
+  margin-bottom: 0;
+  line-height: 1.5em;
+}
+p.money {
+  margin-bottom: 0;
+}
+#Search td.span8 {
+  min-width: 330px;
+  font-size: small;
+}
+#Search img {
+  float: right;
+  margin-right: 20%;
+}
+p.money {
+  margin-bottom: 0;
+}
+#AuctionResult tbody tr td.span4 {
+  width: 30%;
+}
+#AuctionResult tbody tr td {
+  width: 69%;
+}
+
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 0 !important;
+    margin-top:0 !important;
+  }
+  .well,
+  .alert-info {
+    margin-left: 0;
+  }
+  #myCarousel div.carousel-inner div.item.active a img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
+  }
+  p.money {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  #myCarousel div.carousel-inner div.item.active a img,
+  #myCarousel div.carousel-inner div.item.active div.carousel-caption {
+    max-width: 400px;
+  }
+  .well {
+    max-width: 300px;
+  }
+  #Blog-Posts {
+    max-width: 620px;
+  }
+  div#myCarousel.carousel.span5.offset1 {
+    max-width: 400px;
+  }
+}
+#myCarousel div.carousel-inner div.item.active a img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 99%;
+}
+.twitter-btn img {
+  width: 30%;
+}
+.facebook-btn img {
+  width: 20%;
+}
+#Search td {
+  min-width: 230px;
+  font-size: small;
+}
+
+div#label-info span3 {  list-style-type: none;}
+footer {list-style-type: none;}
