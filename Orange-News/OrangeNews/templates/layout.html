@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ shop_name }} - {{ page_title }}</title>
+        <meta name="description" content="{{ page_description }}" />
+        <link rel="stylesheet" href="{{ 'Bootstrap.Css' | asset_url }}">
+       <link rel="stylesheet" href="//d18ez1d9pi6ayq.cloudfront.net/css/font-awesome.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="//d18ez1d9pi6ayq.cloudfront.net/js/jquery-1.8.1.min.js"><\/script>')</script>
+        <script type="text/javascript" src="//d2giq9ic7r4fft.cloudfront.net/media/js/gzip-bootstrap.min.js"></script>
+
+<script src="{{ 'modernizr-2.6.1-respond-1.1.0.min.js' | asset_url }}"></script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+<div class="navbar navbar-fixed-top navbar-inverse">
+             <div class="container-fluid">
+                <a class="brand" href="/">{{ shop_name|title }}</a>
+                 <i class="icon-shopping-cart"></i>
+                 {% if user_is_logged %}
+                  <a class="small"  href="{{ url_my_shopping }}">: {{ total_cart_items }}</a> 
+                {% else %}
+                     <a class="small"  href="/login/">Login</a> 
+                {% endif %}
+
+                <form action="{{ url_search }}" method="get" class="navbar-search pull-right">
+                          <input type="text" class="search-query span2" placeholder=" Search " name="q" id="q" data-provide="typeahead" data-items="4" data-source="[{% for categories in shop_categories %}{% if loop.last %}&quot;{{ categories.name }}&quot;{% else %}&quot;{{ categories.name }}&quot;,{% endif %}{% endfor %}]" />
+                       </form>
+     </div>
+</div>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    
+                    <div class="nav-collapse">
+                       {{ menu }}
+                       
+                       {% if user_is_logged %}
+                       <p class="navbar-text pull-right">
+                          <a  class="small orange-link" href="{{ url_my_shopping }}">Cart {{ total_cart_items }}</a> &nbsp;<a class="small orange-link"  href="{{ url_my_orders }}">Orders</a>
+                       </p>
+                       {% endif %}
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <!-- FLASH MESSAGE  -->
+            <!-- Page Content is added here from the other pages-->
+            <div class="row-fluid" id="content">
+               <div id="alert alert-block fade in">
+ <!--[if lt IE 7]>
+ <p class="alert alert-danger">
+You Should Be Using Chrome, Safari or Firefox for your own good
+</p>
+<![endif]-->
+
+
+                  {{ flash }}
+               </div>
+               {{ content }}
+            </div>
+            <!-- FOOTER --> 
+            <hr>
+         <footer class="footer">
+               {{ footer }} 
+               <div id="info">
+                  <div class="span3">
+                     <h5>Social Stuff</h5>
+                    <div style="font-size: 24px;">
+                          <i class="icon-camera-retro icon-large"></i>
+                    </div>
+                    <div style="font-size: 15px;">
+                      <i class="icon-phone-sign"></i>  <a href="tel:+1-480-555-1212">Call Us At: +1-480-555-1212</a>
+                    </div>
+                     <h5>About Us</h5>
+                     <p>{{ about|truncate(100) }}</p>
+                     <a href="/about_us/">Read more</a>
+                  </div>
+                  <div class="span3">
+                     <h5>Quick Search</h5>
+                     {% for categories in shop_subcategories %}
+                     <p><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></p>
+                     {% endfor %}
+                     <h5>Quick Navigation</h5>
+                     {% for link in links %}
+                     <p><a href="{{ link.to }}">{{ link.name }}</a></p>
+                     {% endfor %}
+                  </div>
+                  <div class="span3">
+                     <h5>Quick Search</h5>
+                     <form action="{{ url_search }}" method="get">
+                        <input type="text" `placeholder="Search "  name="q" id="s" data-provide="typeahead" data-items="4" data-source='"[ {{ shop_subcategories|join(' "," ') }}]' class="span2"/>
+                     </form>
+                     {% for categories in shop_subcategories %}
+                     <p><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></p>
+                     {% endfor %}
+                     <hr />
+                     <h5>Website Policies</h5>
+                     <ul>
+                        <li><a href="{{ url_privacy_policy }} ">Privacy Policy</a></li>
+                        <li><a href="{{ url_refund_policy }} ">Refund Policy</a></li>
+                        <li><a href="{{ url_terms_of_service_policy }} ">Terms of Service Policy</a></li>
+                     </ul>
+                  </div>
+                  <div class="span2">
+                     <h5>Latest Blog Posts</h5>
+                     <p><a href="{{ last_post.url }}">{{ last_post.title }}</a></p>
+                     <p>Posted on {{ last_post.date_time }}</p>
+                     <p>{{ last_post.body|truncate(100) }}</p>
+                  </div>
+               </div>
+            </footer>
+
+        </div> <!-- /container -->
+   
+    </body>
+</html>    

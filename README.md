@@ -15,9 +15,18 @@ Files:
 
 Readme.md (what your're reading now)
 
-theme.zip - This is the "compiled" zip file that contains all the necessary items for a django shop theme.
+License-Apache2.0txt License for all work developed by Stephen Power, others such as Bootswatch and Bootstra
 
 Folders:
+
+There are two themes, Default and Orange-News. Below is a summary and short documentation for the themes. 
+
+Summary 
+
+default.zip - This is the "compiled" zip file that contains all the necessary items for a django shop theme.
+
+OrangeNews.zip - Same just for the Orange News Theme
+
 
 less: Contains a customized variables.less and an included responsive.less. This readme is unable to explain the less "dynamic stylesheet language"
  
