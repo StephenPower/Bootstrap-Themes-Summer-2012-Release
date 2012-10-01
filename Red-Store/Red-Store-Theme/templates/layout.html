@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+ <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+   <meta charset="utf-8" />
+   <link rel="dns-prefetch" href="//d18ez1d9pi6ayq.cloudfront.net/" />
+   <link rel="dns-prefetch" href="//s3.amazonaws.com" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+     <title>{{ shop_name }} - {{ page_title }}</title>
+   <meta name="description" content="{{ page_description }}" />
+   <link rel="stylesheet" href="http://d18ez1d9pi6ayq.cloudfront.net/css/themes/Red-Store/gzip-bootstrap.2.1.1.css" />
+ </head>
+<body>
+   <!--[if lt IE 7]>
+   <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+   <![endif]-->
+   <div class="wrapper span12">
+      <div class="top-container">
+         <ul class="unstyled">
+            <li class="pull-left"><a href="/pages/our_history/">History</a></li>
+            <li class="pull-left"><a href="/pages/our_history/">Template</a></li>
+            <li class="pull-left"><a href="/pages/our_history/">Customer Service</a></li>
+            <li class="pull-left"><a href="/pages/our_history/">Membership</a></li>
+            <li class="pull-left"><a href="/pages/our_history/">Resources</a></li>
+         </ul>
+         <form action="{{ url_search }}" method="get" class="navbar-search span3 pull-right">
+            <input type="text" class="search-query" placeholder=" Search " name="q" id="q" data-provide="typeahead" data-items="4" data-source="" />
+         </form>
+         <p></p>
+      </div>
+      <div class="navbar navbar-inverse">
+         <div class="navbar-inner">
+            <div class="container">
+               <a class="brand" href="/">{{ shop_name|title }}</a>
+               {{ menu }}
+               {% if user_is_logged %}
+               <p class="navbar-text pull-right">
+                  <a class="text-nav" href="{{ url_my_shopping }}">Cart {{ total_cart_items }}</a> &nbsp;<a class="text-nav" href="{{ url_my_orders }}">Orders</a>
+               </p>
+               {% endif %}
+            </div>
+         </div>
+      </div>
+      <div class="container">
+         <!-- FLASH MESSAGE  -->
+         <!-- Page Content is added here from the other pages-->
+         <div class="row" id="content">
+            {{ flash }}
+            {{ content }}
+         </div>
+         <!-- FOOTER --> 
+         <footer>
+            {{ footer }} 
+            <div id="label-info">
+               <div class="span3">
+                  <h5>About Us</h5>
+                  <p>{{ about|truncate(100) }}</p>
+                  <a href="/about_us/">Read more</a>
+               </div>
+               <div class="span3">
+                  <h5>Quick Search</h5>
+                  {% for categories in shop_subcategories %}
+                  <p><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></p>
+                  {% endfor %}
+                  <h5>Quick Navigation</h5>
+                  {% for link in links %}
+                  <p><a href="{{ link.to }}">{{ link.name }}</a></p>
+                  {% endfor %}
+               </div>
+               <div class="span3">
+                  <h5>Quick Search</h5>
+                  <form action="{{ url_search }}" method="get">
+                     <input type="text" placeholder="Search "  name="q" id="s" data-provide="typeahead" data-items="4" data-source='"[ {{ shop_subcategories|join(' "," ') }}]' class="span2"/>
+                  </form>
+                  {% for categories in shop_subcategories %}
+                  <p><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></p>
+                  {% endfor %}
+                  <hr />
+                  <h5>Website Policies</h5>
+                  <ul class="unstyled">
+                     <li><a href="{{ url_privacy_policy }} ">Privacy Policy</a></li>
+                     <li><a href="{{ url_refund_policy }} ">Refund Policy</a></li>
+                     <li><a href="{{ url_terms_of_service_policy }} ">Terms of Service Policy</a></li>
+                  </ul>
+               </div>
+               <div class="span2">
+                  <h5>Latest Blog Posts</h5>
+                  <p><a href="{{ last_post.url }}">{{ last_post.title }}</a></p>
+                  <p>Posted on {{ last_post.date_time }}</p>
+                  <p>{{ last_post.body|truncate(100) }}</p>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <!-- /container -->
+   </div>
+   <!-- /wrapper -->
+<script src="http://d18ez1d9pi6ayq.cloudfront.net/js/gzip-jquery-1.8.2.min.js"></script>
+<script src="http://d18ez1d9pi6ayq.cloudfront.net/js/bootstrap.min.js"></script>
+</body>
+
+</html>
