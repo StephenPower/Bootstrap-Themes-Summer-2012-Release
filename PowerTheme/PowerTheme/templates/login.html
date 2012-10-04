@@ -1,0 +1,47 @@
+<div class="span4 offset2">
+	<h3>Registered User's Login</h3>
+	<p> If you have registered with a Facebook, Google or Twitter,<a href="/register/"> please login here </a></p>
+	<div class="well">
+  <form action="." method="POST" class="form">
+     <fieldset>
+        {{ form_login }}
+        <button type="submit" class="btn btn-primary">Login</button>
+     </fieldset>
+  </form>
+</div>
+</div>
+<div class="span5"> 
+	<h3>Social Login</h3>
+	<div class="page-header">Use your social media account to login so you don't have to remember another password.
+</div>
+     <h5>Sign in with:</h5>
+      <p>
+        <a href="{{ url_twitter_login }}"> <img src="https://s3.amazonaws.com/cdn.collectorcity.com/img/social-media/twitter_newbird_blue-100x100.png"  alt="Smiley face"></a>
+        <a href="{{ url_facebook_login }}"> <img src="https://s3.amazonaws.com/cdn.collectorcity.com/img/social-media/f_logo-100x100.png" alt="Smiley face"></a>
+        <a href="{{ url_google_login }}"> <img src="https://s3.amazonaws.com/cdn.collectorcity.com/img/social-media/gmail_logo_nobeta_large-100x42.gif" alt="Smiley face"></a>
+        </p>
+</div>
+
+<!--
+
+   {#
+   Page: login.html
+   Purpose: Shops login page. You need to be logged in to bid, buy, view cart or view purchase history
+   Status: Required
+   This Template is Passed to the layout.html as {{ content }}
+   CSS Notes: 
+      
+   Variables on This Page:
+   
+   {{ form_login }}
+    Description: login formed passed to shops. This must be present an unaltered
+   
+   Filters on this Page
+   None
+   
+   Variable to iterate over
+   None
+   
+   Author: Stephen Power
+   #}
+   -->

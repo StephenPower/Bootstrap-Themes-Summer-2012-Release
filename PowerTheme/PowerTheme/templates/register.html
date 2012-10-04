@@ -1,0 +1,45 @@
+<div class="span4 offset2" id="Registration">
+<h3>Registration</h3>
+  <form name="form" method="post" action="." class="well">
+         <fieldset>
+            {{ register }}
+            <button type="submit" class="btn btn-primary">Register</button></p>
+         </fieldset>
+      </form>
+</div>
+
+<div class="span5"> 
+	<h3>Social Login</h3>
+	<div class="page-header">Use your social media account to login so you don't have to remember another password.
+</div>
+     <h5>Sign in with:</h5>
+      <p>
+        <a href="{{ url_twitter_login }}"> <img src="https://s3.amazonaws.com/cdn.collectorcity.com/img/social-media/twitter_newbird_blue-100x100.png"  alt="Smiley face"></a>
+        <a href="{{ url_facebook_login }}"> <img src="https://s3.amazonaws.com/cdn.collectorcity.com/img/social-media/f_logo-100x100.png" alt="Smiley face"></a>
+        <a href="{{ url_google_login }}"> <img src="https://s3.amazonaws.com/cdn.collectorcity.com/img/social-media/gmail_logo_nobeta_large-100x42.gif" alt="Smiley face"></a>
+        </p>
+</div>
+
+
+<!-- 
+   {#
+   Page: register.html
+   Purpose: Shops registration page. You need to be registered and logged in to bid, buy, view cart or view purchase history
+   Status: Required
+   This Template is Passed to the layout.html as {{ content }}
+   CSS Notes: 
+   		
+   Variables on This Page:
+   
+   {{ register }}
+   	Description: Registration formed passed to shops. This must be present an unaltered
+   
+   Filters on this Page
+   None
+   
+   Variable to iterate over
+   None
+   
+   Author: Stephen Power
+   #}
+   -->
