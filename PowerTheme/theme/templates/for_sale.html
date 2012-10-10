@@ -1,0 +1,83 @@
+<div class="span12">
+   <h3>For Sale</h3>
+<select name="selectedPage" class="pull-right" sytle="color:#333">
+    onChange="changePage(this.form.selectedPage)">
+        <option value = "" selected> Search Categories</option>
+        {% for categories in shop_categories -%}
+            <option value = "/search/?q={{categories.name }}">{{ categories.name }}</option>
+     {% endfor %}  
+  </select>
+</div>
+{% if not items %}
+<h3>No items for sale.</h3>
+{% endif %}
+
+
+
+{% for item in items %}
+
+	{% if loop.first %} 
+	<div class="row-fluid clearfix" id="{{loop.index}}">
+	{% endif %}
+
+	{% if loop.index is divisibleby 4 %}
+	<div class="row-fluid clearfix"  id="{{loop.index}}" >
+	{% endif %}
+
+<div class="span4 ImageInfo gray-background">
+   <a  href="{{item.url}}"><img src="{{ item.image. original}}" />
+    <h4>{{item.title|title}}</h4> 
+     <h5>{{item.category|title}}</h5></a>
+      <div class="blue-background white-text pull-right Price-Box" >{{item.price}}.00
+        </div></a>
+</div>
+
+		{% if loop.index is divisibleby 3 or loop.last %}
+		</div>
+		{% endif %}
+		{% if loop.last %}
+		</div>
+		{% endif %}
+{% endfor %}
+
+
+<div class="pagination span12">
+   {{ paginator }}
+</div>
+<!-- 
+   {#
+   Page: for_sale.html
+   Purpose: main page that displays items for sale, when a user clicks on the menu link
+   Status: Required
+   This Template is Passed to the layout.html as {{ content }}
+   CSS Notes:
+   
+   Variables on This Page:
+   item
+    Description: Basic Variable for the items sold in shopping cart. All for sale items share the item variable
+   
+    .url
+      Description: item url
+      
+    .price
+      Description: Price of the item 
+      
+    .title
+      Description: Item title as entered by the shop owner
+    
+    .image.small
+      Description: We don't want to show a heavy page with 16 items per page, so we show a small image instead.
+      
+   {{ paginator }}:
+    Description: pagination variable, when there are more than 5 posts, pagination occurs. 
+   
+   Filters on this Page
+   |asset_url
+    Description: the url to the item referenced in the variable ie image url or css file url in layout.html
+   
+   Variable to iterate over
+   None
+   
+   Author: Stephen Power
+   #}
+   -->

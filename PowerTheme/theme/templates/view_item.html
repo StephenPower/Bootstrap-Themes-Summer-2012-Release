@@ -1,0 +1,119 @@
+<div calss="span12">
+   <h2>{{item.title|title}}</h2>
+     {% if item.subcategory %}
+      <p><a href="/search/?q={{ item.category }}">{{ item.category }}</a> >> <a href="/search/?q={{ item.subcategory }}">{{ item.subcategory }}</a> </p>
+      {% else %}
+      <p><a href="/search/?q={{ item.category }}">{{ item.category }}</a></p>
+      {% endif %}
+</div>
+
+<div class="span12" style="margin-left:0;padding-left:0;" >
+   <div id="myCarousel" class="carousel span8" >
+    <!-- Carousel items -->
+      <div class="carousel-inner">
+         {% for img in images %}
+         {% if loop.first %}
+         <div class="item active">
+            <a href="{{ img.original }}" target="_blank"><img style="min-width:632px;min-height:632px" src="{{ img.original }}" /></a>
+            <div style="position:relative" class="carousel-caption">
+               <p>{{ item.title|title }}</p>
+               <p class="small">Click On Image to View Original Size</p>
+            </div>
+         </div>
+         {% else %}
+         <div class="item">
+            <a href="{{ img.original }}" target="_blank"><img src="{{ img.medium }}" /></a>
+            <div class="carousel-caption">
+               <p>{{ item.title|title }}</p>
+               <p class="small">Click On Image to View Original Size</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+         </div>
+         <!-- Carousel nav -->
+         <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+
+   <div class="span4 pull-right" >
+     {% if user_is_logged %}
+      {{ form }}      
+      <p class="description">{{ item.description }}</p>     
+      {% else %}
+        <style>
+           form label {font-size: xx-large; margin-top:40px}
+          
+        </style>
+      
+      {{ form }}
+<p><a href="/login/" class="btn btn-primary large">Please Login To Add Item To Cart</a></p>
+<p> Or </p>
+<p> <a href="/register/" class="btn btn-primary large"> Sign Up </a></p>
+<p class="description">{{ item.description }}</p>   
+    {% endif %}
+   </div>
+</div>
+</div>
+
+<script type="text/javascript">
+   // Load this when the DOM is ready
+  $(document).ready(function(){
+     $('#myCarousel').carousel();
+   });
+</script>
+
+<!-- 
+    {#
+    Page: view_item.html
+    Purpose: View Item Details from search result or link to item 
+    Status: Required
+    This Template is Passed to the layout.html as {{ content }}
+    HTML / CSS Notes: 
+    Search Functionality
+      I used the generic search url /search/ with the sub or category name to allow users who are interested in the same, to find. 
+      
+    Variables This Section:
+    
+    item
+      Description: Basic for sale variable
+      
+      .title
+        Description: Title as entered by the shop owner
+        
+      .category
+        Description: Category for the item, categories are set at the marketplace level
+        
+      .subcategory
+        Description: Subcategory for the item, categories are set at the marketplace level. Must have a parent Category
+    
+      .description
+        Description: Item Description as entered by shop admin
+        
+    img
+      Description: img for the item
+      
+      .original
+      Description: Uses the actual image submitted, not a smaller one. This can be very high resolution, with no cap, except at the shop level
+    
+    {% if user_is_logged %}
+      Description: Checks if the user is logged, so we know to put the bid button or link to login
+      Note: Need to Add Follow link to redirect after login
+    
+    {{ MEDIA_URL }}
+      Description: This is the marketplace media url, do not alter, for convience, we keep galleria image JS and associated files available for everyone. Again, you may add to your assets class your own image, gallery, the URL string is {{ asset_url }}
+    
+    Filters on this Page
+    |title
+      Description: Jinja2 filter that ensures text string is Title Case.
+    
+    
+    Variable to iterate over
+    None
+    
+    Java Script:
+      Description: Galleria image gallery. You may substitute as needed
+    
+    Author: Stephen Power
+    #}
+    -->
+<!--JS for image gallery, please use another if you want, just remember to include it in your assets and layout.html-->
