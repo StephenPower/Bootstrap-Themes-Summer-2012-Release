@@ -1,58 +1,86 @@
-<div class="span10">
-   <h3>For Sale Items</h3>
-   <div class="SearchPageBox">
-      <form action="/search/" method="get">
-         <input type="text" `placeholder="Search.... " name="q" class="span8" />
-      </form>
-   </div>
-</div>
-<ul class="well span3">
-   <li class="side-header">Category Search</li>
-   {% for categories in shop_categories %}
-   <li><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></li>
-   {% endfor %}
-</ul>
-{% if not items %}
-<h3>No items for sale.</h3>
-{% endif %}
-<div class="span4">
-   <table class="table">
-      <thead>
-         <tr>
-            <th></th>
-            <th></th>
-         </tr>
-      </thead>
-      {% for item in items %}
-      <tr>
-         <td> <a href="{{item.url}}">
-            <img src="{% if item.image.small %}{{ item.image.small }}{% else %}{{ 'no_photo_small.png'|asset_url }}{% endif %}" alt="{{ item.title }}" />
-            </a>
-         </td>
-         <td><a href="{{item.url}}">
-            <h5>{{item.title|title}}</h5>
-            <h6 class="money">{{item.price}}</h6>
-            </a>
-         </td>
-      </tr>
-      {% endfor %}
-      </tbody>
-   </table>
-</div>
-<ul class="span3 well">
-   <li class="side-header">Other Search Terms</li>
-   {% for categories in shop_subcategories %}
-   <li><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></li>
-   {% endfor %}
-   {% for categories in shop_subcategories %}
-   <li><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></li>
-   {% endfor %}
-</ul>
-<div class="pagination offset3">
-   {{ paginator }}
-</div>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
 
-<!-- 
+  <title></title>
+</head>
+
+<body>
+  <div class="span10">
+    <h3>For Sale Items</h3>
+
+    <div class="SearchPageBox">
+      <form action="/search/" method="get">
+        <input type="text" name="q" class="span8">
+      </form>
+    </div>
+  </div>
+
+  <ul class="well span3">
+    <li class="side-header">Category Search</li>
+
+    <li style="list-style: none">{% for categories in
+    shop_categories %}</li>
+
+    <li><a href="/search/?q={{categories.name}}">{{ categories.name
+    }}</a></li>
+
+    <li style="list-style: none">{% endfor %}</li>
+  </ul>{% if not items %}
+
+  <h3>No items for sale.</h3>{% endif %}
+
+  <div class="span4">
+    {% for item in items %} {% endfor %}
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+
+          <th></th>
+        </tr>
+      </thead>
+
+      <tr>
+        <td><a href="{{item.url}}"><img src=
+        "{%%20if%20item.image.small%20%}{{%20item.image.small%20}}{%%20else%20%}{{%20'no_photo_small.png'|asset_url%20}}{%%20endif%20%}"
+        alt="{{ item.title }}"></a></td>
+
+        <td>
+          <a href="{{item.url}}"></a>
+
+          <h5><a href="{{item.url}}">{{item.title|title}}</a></h5>
+
+          <h6 class="money"><a href=
+          "{{item.url}}">{{item.price}}</a></h6>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <ul class="span3 well">
+    <li class="side-header">Other Search Terms</li>
+
+    <li style="list-style: none">{% for categories in
+    shop_subcategories %}</li>
+
+    <li><a href="/search/?q={{categories.name}}">{{ categories.name
+    }}</a></li>
+
+    <li style="list-style: none">{% endfor %} {% for categories in
+    shop_subcategories %}</li>
+
+    <li><a href="/search/?q={{categories.name}}">{{ categories.name
+    }}</a></li>
+
+    <li style="list-style: none">{% endfor %}</li>
+  </ul>
+
+  <div class="pagination offset3">
+    {{ paginator }}
+  </div><!-- 
    {#
    Page: for_sale.html
    Purpose: main page that displays items for sale, when a user clicks on the menu link
@@ -89,3 +117,5 @@
    Author: Stephen Power
    #}
    -->
+</body>
+</html>

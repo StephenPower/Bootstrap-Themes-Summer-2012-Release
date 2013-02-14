@@ -1,31 +1,51 @@
-<div class="span12">
-  <h2>Blog</h2>
-</div>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
 
-<div class="span7" id="Blog-Posts">
-   {% for post in posts %}
-   <h3>{{ post.title }} </h3>
-   <p class="small">{{ post.date_time }}</p>
-   <p>{{ post.body|safe|truncate(300) }}</p>
-   <h5><a href="{{ post.url }}">Continue reading "{{post.title}}" >></a></h5>
-   {% endfor %}
-</div>
-<div class="span4">
-<ul class="well">
-   <li class="side-header">About Our Blog</li>
-   <li>{{ lipsum(5, False, 25, 35) }}</li>
-   <li class="side-header">Latest Posts</li>
-   {% for post in last_posts %}
-   <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-   {% endfor %}
- </ul>
-</div>
-<div class="span12">
-   <div class="pagination">
+  <title></title>
+</head>
+
+<body>
+  <div class="span12">
+    <h2>Blog</h2>
+  </div>
+
+  <div class="span7" id="Blog-Posts">
+    {% for post in posts %}
+
+    <h3>{{ post.title }}</h3>
+
+    <p class="small">{{ post.date_time }}</p>
+
+    <p>{{ post.body|safe|truncate(300) }}</p>
+
+    <h5><a href="{{%20post.url%20}}">Continue reading
+    "{{post.title}}" &gt;&gt;</a></h5>{% endfor %}
+  </div>
+
+  <div class="span4">
+    <ul class="well">
+      <li class="side-header">About Our Blog</li>
+
+      <li>{{ lipsum(5, False, 25, 35) }}</li>
+
+      <li class="side-header">Latest Posts</li>
+
+      <li style="list-style: none">{% for post in last_posts
+      %}</li>
+
+      <li><a href="{{%20post.url%20}}">{{ post.title }}</a></li>
+
+      <li style="list-style: none">{% endfor %}</li>
+    </ul>
+  </div>
+
+  <div class="span12">
+    <div class="pagination">
       {{ paginator }}
-   </div>
-</div>
-<!-- 
+    </div>
+  </div><!-- 
    {#
    Page: blog.html
    Purpose: main blog page for the Django Market Shop
@@ -76,3 +96,5 @@
    Author: Stephen Power
    #}
    -->
+</body>
+</html>

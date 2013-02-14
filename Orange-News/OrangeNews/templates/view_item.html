@@ -1,79 +1,106 @@
-<div calss="span12">
-   <h2>{{item.title|title}}</h2>
-   <p class="page-header&quot;">{{item.description|truncate(100)}}</p>
-</div>
-<div class="span4 offset1">
-   <div id="myCarousel" class="carousel">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
+
+  <title></title>
+</head>
+
+<body>
+  <div calss="span12">
+    <h2>{{item.title|title}}</h2>
+
+    <p class="page-header&quot;">
+    {{item.description|truncate(100)}}</p>
+  </div>
+
+  <div class="span4 offset1">
+    <div id="myCarousel" class="carousel">
       <!-- Carousel items -->
+
       <div class="carousel-inner">
-         {% for img in images %}
-         {% if loop.first %}
-         <div class="item active">
-            <a href="{{ img.original }}" target="_blank"><img src="{{ img.medium }}" /></a>
-            <div class="carousel-caption">
-               <p>{{ item.title|title }}</p>
-               <p class="small">Click On Image to View Original Size</p>
-            </div>
-         </div>
-         {% else %}
-         <div class="item">
-            <a href="{{ img.original }}" target="_blank"><img src="{{ img.medium }}" /></a>
-            <div class="carousel-caption">
-               <p>{{ item.title|title }}</p>
-               <p class="small">Click On Image to View Original Size</p>
-            </div>
-            {% endif %}
-            {% endfor %}
-         </div>
-         <!-- Carousel nav -->
-         <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        {% for img in images %} {% if loop.first %}
+
+        <div class="item active">
+          <a href="{{%20img.original%20}}" target=
+          "_blank"><img src="{{%20img.medium%20}}"></a>
+
+          <div class="carousel-caption">
+            <p>{{ item.title|title }}</p>
+
+            <p class="small">Click On Image to View Original
+            Size</p>
+          </div>
+        </div>{% else %}
+
+        <div class="item">
+          <a href="{{%20img.original%20}}" target=
+          "_blank"><img src="{{%20img.medium%20}}"></a>
+
+          <div class="carousel-caption">
+            <p>{{ item.title|title }}</p>
+
+            <p class="small">Click On Image to View Original
+            Size</p>
+          </div>{% endif %} {% endfor %}
+        </div><!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel"
+        data-slide="prev">‹</a> <a class="carousel-control right"
+        href="#myCarousel" data-slide="next">›</a>
       </div>
-   </div>
-   <div class="well span4">
+    </div>
+
+    <div class="well span4">
       {% if item.subcategory %}
-      <p><a href="/search/?q={{ item.category }}">{{ item.category }}</a> >> <a href="/search/?q={{ item.subcategory }}">{{ item.subcategory }}</a> </p>
-      {% else %}
-      <p><a href="/search/?q={{ item.category }}">{{ item.category }}</a></p>
-      <p>
-      <h3>{{ item.id }} Item ID</h3>
-      </p>
-      {% endif %}
-      {% if user_is_logged %}
-      {{ form }}      
+
+      <p><a href="/search/?q={{%20item.category%20}}">{{
+      item.category }}</a> &gt;&gt; <a href=
+      "/search/?q={{%20item.subcategory%20}}">{{ item.subcategory
+      }}</a></p>{% else %}
+
+      <p><a href="/search/?q={{%20item.category%20}}">{{
+      item.category }}</a></p>
+
+      <h3>{{ item.id }} Item ID</h3>{% endif %} {% if
+      user_is_logged %} {{ form }}
+
       <h6>Find Other Popular Items</h6>
+
       <ul>
-         <li><a href="/search/?q=">See What's For Sale</a></li>
-         <li><a href="/search/?q=dollars">Dollars</a></li>
-         <li><a href="/search/?q=gold">Gold</a></li>
-         </br>
-         <li><a href="/home/">Home Page</a></li>
-      </ul>
-      {% else %}
-      <a href="/login/" class="small alert-danger">Please Login To Add Item To Cart</a> Or <a href="/register/" class="small alert-info"> Sign Up </a>
-      {{ form }}    
+        <li><a href="/search/?q=">See What's For Sale</a></li>
+
+        <li><a href="/search/?q=dollars">Dollars</a></li>
+
+        <li><a href="/search/?q=gold">Gold</a></li>
+
+        <li><a href="/home/">Home Page</a></li>
+      </ul>{% else %} <a href="/login/" class=
+      "small alert-danger">Please Login To Add Item To Cart</a> Or
+      <a href="/register/" class="small alert-info">Sign Up</a> {{
+      form }}
+
       <ul>
-         <li><a href="/search/?q=">See What's For Sale</a></li>
-         <li><a href="/search/?q=dollars">Dollars</a></li>
-         <li><a href="/search/?q=gold">Gold</a></li>
-         </br>
-         <li><a href="/home/">Home Page</a></li>
-      </ul>
-      {% endif %}
-   </div>
-</div>
-<div class="span12">
-   <h2>Description</h2>
-   <p class="description">{{ item.description }}</p>
-</div>
-<script type="text/javascript">
-   // Load this when the DOM is ready
+        <li><a href="/search/?q=">See What's For Sale</a></li>
+
+        <li><a href="/search/?q=dollars">Dollars</a></li>
+
+        <li><a href="/search/?q=gold">Gold</a></li>
+
+        <li><a href="/home/">Home Page</a></li>
+      </ul>{% endif %}
+    </div>
+  </div>
+
+  <div class="span12">
+    <h2>Description</h2>
+
+    <p class="description">{{ item.description }}</p>
+  </div><script type="text/javascript">
+// Load this when the DOM is ready
   $(document).ready(function(){
      $('#myCarousel').carousel();
    });
-</script>
-
-<!-- 
+  </script><!-- 
     {#
     Page: view_item.html
     Purpose: View Item Details from search result or link to item 
@@ -127,4 +154,6 @@
     Author: Stephen Power
     #}
     -->
-<!--JS for image gallery, please use another if you want, just remember to include it in your assets and layout.html-->
+  <!--JS for image gallery, please use another if you want, just remember to include it in your assets and layout.html-->
+</body>
+</html>

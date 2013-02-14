@@ -1,103 +1,124 @@
-<div class="span12">
-<h2>{{ home.title }}</h2>
-</div>
-<div class="carousel slide span4" id="myCarousel">
-   <!-- Carousel items -->
-   <div class="carousel-inner">
-      {% for item in new_items %}
-      {% if loop.first %}
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
+
+  <title></title>
+</head>
+
+<body>
+  <div class="span12">
+    <h2>{{ home.title }}</h2>
+  </div>
+
+  <div class="carousel slide span4" id="myCarousel">
+    <!-- Carousel items -->
+
+    <div class="carousel-inner">
+      {% for item in new_items %} {% if loop.first %}
+
       <div class="active item">
-         <a href="{{item.url}}">
-            <img src="{% if item.image.medium %}{{ item.image.medium }}{% else %}{{ 'no_photo_small.png'|asset_url }}{% endif %}" alt="{{ item.title }}" />
-            <div class="carousel-caption">
-               <h4> {{ item.title}} </h4>
-               <p>{{ item.description|truncate(160) }}</p>
-            </div>
-         </a>
-      </div>
-      {% else %}
-      <div class="item">
-         <a href="{{item.url}}">
-            <img src="{% if item.image.medium %}{{ item.image.medium }}{% else %}{{ 'no_photo_small.png'|asset_url }}{% endif %}" alt="{{ item.title }}" />
-            <div class="carousel-caption">
-               <h4> {{ item.title}} </h4>
-               <p>{{ item.description|truncate(60) }}</p>
-            </div>
-         </a>
-      </div>
-      {% endif %}
-      {% endfor %}
-   </div>
-   <!-- Carousel nav -->
-   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div>
-<div class="span3">
-   <ul class="well">
-      <li class="side-header">{{ home.title }}</li>
-      <li> {{ home.body }}</li>
-      <li class="side-header">Browse</li>
-      <li><a href="/search/?=">Item's For Sale</a></li>
-      <li class="side-header">Sign Up For Our Newsletter</li>
-      <li>
-         <div class="form-stacked " id="EmailSignUp">
-            {{ mailing_list }}
-          </div>
-      </li>
-   </ul>
-</div>
-<div class="span3">
-   <ul class="well">
-      <li class="side-header">Additional Information</li>
-      <li> {{ home.body }}</li>
-      <li class="side-header">Blog</li>
-      <li><a href="/blog/">Latest Blog Post</a></li>
-      <li class="side-header"><i class="icon-envelope orange-link"></i>Sign Up For Our Newsletter</li>
-      <li>
-         <div class="form-stacked " id="EmailSignUp">
-     {{ mailing_list }}
+        <a href="{{item.url}}"><img src=
+        "{%%20if%20item.image.medium%20%}{{%20item.image.medium%20}}{%%20else%20%}{{%20'no_photo_small.png'|asset_url%20}}{%%20endif%20%}"
+        alt="{{ item.title }}"></a>
+
+        <div class="carousel-caption">
+          <h4>{{ item.title}}</h4>
+
+          <p>{{ item.description|truncate(160) }}</p>
         </div>
-          </div>
+      </div>{% else %}
+
+      <div class="item">
+        <a href="{{item.url}}"><img src=
+        "{%%20if%20item.image.medium%20%}{{%20item.image.medium%20}}{%%20else%20%}{{%20'no_photo_small.png'|asset_url%20}}{%%20endif%20%}"
+        alt="{{ item.title }}"></a>
+
+        <div class="carousel-caption">
+          <h4>{{ item.title}}</h4>
+
+          <p>{{ item.description|truncate(60) }}</p>
+        </div>
+      </div>{% endif %} {% endfor %}
+    </div><!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide=
+    "prev">‹</a> <a class="carousel-control right" href=
+    "#myCarousel" data-slide="next">›</a>
+  </div>
+
+  <div class="span3">
+    <ul class="well">
+      <li class="side-header">{{ home.title }}</li>
+
+      <li>{{ home.body }}</li>
+
+      <li class="side-header">Browse</li>
+
+      <li><a href="/search/?=">Item's For Sale</a></li>
+
+      <li class="side-header">Sign Up For Our Newsletter</li>
+
+      <li>
+        <div class="form-stacked" id="EmailSignUp">
+          {{ mailing_list }}
+        </div>
       </li>
-   </ul>
-</div>
-<div class="span8">
-   <hr />
-    <h3>Sample Icons for this theme</h3>
-    <a class="btn" href="#">
-  <i class="icon-refresh"></i> Refresh</a>
-<a class="btn btn-success" href="#">
-  <i class="icon-shopping-cart icon-large"></i> Checkout</a>
-<a class="btn btn-large btn-primary" href="#">
-  <i class="icon-comment"></i> Comment</a>
-<a class="btn btn-danger" href="#">
-  <i class="icon-trash icon-large"></i> Delete</a>
-<a class="btn btn-small" href="#">
-  <i class="icon-cog"></i> Settings</a>
-<a class="btn btn-small btn-info" href="#">
-  <i class="icon-info-sign"></i> More Info</a>
+    </ul>
+  </div>
 
-   <h3>Sample Colors For this Theme</h3>
-   <div class="label-important">
+  <div class="span3">
+    <ul class="well">
+      <li class="side-header">Additional Information</li>
+
+      <li>{{ home.body }}</li>
+
+      <li class="side-header">Blog</li>
+
+      <li><a href="/blog/">Latest Blog Post</a></li>
+
+      <li class="side-header">Sign Up For Our Newsletter</li>
+
+      <li>
+        <div class="form-stacked" id="EmailSignUp">
+          {{ mailing_list }}
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="span8">
+    <hr>
+
+    <h3>Sample Icons for this theme</h3><a class="btn" href=
+    "#">Refresh</a> <a class="btn btn-success" href=
+    "#">Checkout</a> <a class="btn btn-large btn-primary" href=
+    "#">Comment</a> <a class="btn btn-danger" href="#">Delete</a>
+    <a class="btn btn-small" href="#">Settings</a> <a class=
+    "btn btn-small btn-info" href="#">More Info</a>
+
+    <h3>Sample Colors For this Theme</h3>
+
+    <div class="label-important">
       <p>This is Important Color</p>
-   </div>
-   <div class="label-warning">
+    </div>
+
+    <div class="label-warning">
       <p>This is Warning Color</p>
-   </div>
-   <div class="label-success">
+    </div>
+
+    <div class="label-success">
       <p>This is Success Color</p>
-   </div>
-   <div class="label-info">
+    </div>
+
+    <div class="label-info">
       <p>This is info Color</p>
-   </div>
-   <div class="label-inverse">
+    </div>
+
+    <div class="label-inverse">
       <p>This is inverse Color</p>
-   </div>
-   <a href="{{ url_refund }}" title="Refund Policy">Refund Policy</a>
-</div>
-
-
-<!-- 
+    </div><a href="{{%20url_refund%20}}" title=
+    "Refund Policy">Refund Policy</a>
+  </div><!-- 
    {#
    Page: home.html
    Purpose: Shops home page 
@@ -135,3 +156,5 @@
    Author: Stephen Power
    #}.....
    -->
+</body>
+</html>

@@ -1,18 +1,28 @@
-<div id="PayPalPaymentConfirm">
-   <div class="span3">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
+
+  <title></title>
+</head>
+
+<body>
+  <div id="PayPalPaymentConfirm">
+    <div class="span3">
       <h2>Please confirm your payment!</h2>
-   </div>
-   <div class="span5">
+    </div>
+
+    <div class="span5">
       <p>Total amount: {{ total_amount }}</p>
+
       <form action="." method="post">
-         {{ form_paypal_confirm }}
-         <a href="{{ cancel_url }}">Cancel</a>
-         or
-         <button class="btn-primary" type="submit" name="action" value="confirm">Confirm</button>
+        {{ form_paypal_confirm }} <a href=
+        "{{%20cancel_url%20}}">Cancel</a> or <button class=
+        "btn-primary" type="submit" name="action" value=
+        "confirm">Confirm</button>
       </form>
-   </div>
-</div>
-<!-- 
+    </div>
+  </div><!-- 
 {#
 Page: payment_paypal_confirm.html
 Purpose: Page is displayed before a user confirms paypal information / payment
@@ -33,3 +43,5 @@ None
 Author: Stephen Power
 #}
 -->
+</body>
+</html>

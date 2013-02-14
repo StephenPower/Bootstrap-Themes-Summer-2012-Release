@@ -1,58 +1,85 @@
-<div class="span11">
-   <h2>Search Results</h2>
-   <div class="Search-result">
-      <form action="{{ url_search }}" method="get">
-         <input type="text" `placeholder="Search.... " name="q" class="span8" />
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
+
+  <title></title>
+</head>
+
+<body>
+  <div class="span11">
+    <h2>Search Results</h2>
+
+    <div class="Search-result">
+      <form action="{{%20url_search%20}}" method="get">
+        <input type="text" name="q" class="span8">
       </form>
-   </div>
-</div>
-
-<div class="span11">
-   {% if results|length  == 60 %}
-   <div class="NoResults">
-      <div class="span2 debar-nav well hidden-phone">
-         <ul class="nav nav-list">
-            {% for categories in shop_categories %}
-            <li><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></li>
-            {% endfor %}
-         </ul>
-      </div>
-      <div class="span8">
-         <h2>Sorry we didn't have what you wanted...</h2>
-         <h3>Please Look at Our...</h3>
-         <b><a href="/for_sale/">Rare Coins For Sale</a></b>
-            <p><b> <a href="/auctions/">Online Coin Auctions</a></b></p>
-            <p><b> <a href="/home">Our Home Page</a></b></p>
-     </div>
-   </div>
-</div>
-   {% else %}
-   <ul class="well span3">
-      <li class="side-header">Category Search</li>
-      {% for categories in shop_categories %}
-      <li><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></li>
-      {% endfor %}
-   </ul>
-   <div class="span6">
-      <!-- **************************** -->
-      {{ results }}
-      <!-- **************************** -->
-   </div>
-   <ul class="span3 well">
-      <li class="side-header">Other Search Terms</li>
-      {% for categories in shop_subcategories %}
-      <li><a href="/search/?q={{categories.name}}">{{ categories.name }}</a></li>
-      {% endfor %}
-   </ul>
     </div>
-{% endif %}
-<div class="row-fluid" id="Pagination">
-   <div class="pagination span8 offset3">
-      {{ paginator }}
-   </div>
-</div>
+  </div>
 
-<!-- 
+  <div class="span11">
+    {% if results|length == 60 %}
+
+    <div class="NoResults">
+      <div class="span2 debar-nav well hidden-phone">
+        <ul class="nav nav-list">
+          <li style="list-style: none">{% for categories in
+          shop_categories %}</li>
+
+          <li><a href="/search/?q={{categories.name}}">{{
+          categories.name }}</a></li>
+
+          <li style="list-style: none">{% endfor %}</li>
+        </ul>
+      </div>
+
+      <div class="span8">
+        <h2>Sorry we didn't have what you wanted...</h2>
+
+        <h3>Please Look at Our...</h3><b><a href="/for_sale/">Rare
+        Coins For Sale</a></b>
+
+        <p><b><a href="/auctions/">Online Coin Auctions</a></b></p>
+
+        <p><b><a href="/home">Our Home Page</a></b></p>
+      </div>
+    </div>
+  </div>{% else %}
+
+  <ul class="well span3">
+    <li class="side-header">Category Search</li>
+
+    <li style="list-style: none">{% for categories in
+    shop_categories %}</li>
+
+    <li><a href="/search/?q={{categories.name}}">{{ categories.name
+    }}</a></li>
+
+    <li style="list-style: none">{% endfor %}</li>
+  </ul>
+
+  <div class="span6">
+    <!-- **************************** -->
+    {{ results }} <!-- **************************** -->
+  </div>
+
+  <ul class="span3 well">
+    <li class="side-header">Other Search Terms</li>
+
+    <li style="list-style: none">{% for categories in
+    shop_subcategories %}</li>
+
+    <li><a href="/search/?q={{categories.name}}">{{ categories.name
+    }}</a></li>
+
+    <li style="list-style: none">{% endfor %}</li>
+  </ul>{% endif %}
+
+  <div class="row-fluid" id="Pagination">
+    <div class="pagination span8 offset3">
+      {{ paginator }}
+    </div>
+  </div><!-- 
    {#
    Page: search.html
    Purpose: Page is displayed when a shop has manual payment enabled.
@@ -78,3 +105,5 @@
    Author: Stephen Power
    #}
    -->
+</body>
+</html>

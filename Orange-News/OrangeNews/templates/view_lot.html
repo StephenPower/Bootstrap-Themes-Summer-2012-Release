@@ -1,57 +1,74 @@
-<div class="span12" id="ViewLot">
-<h2>{{lot.title|title}}</h2>
-</div>
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.10), see www.w3.org">
+
+  <title></title>
+</head>
+
+<body>
+  <div class="span12" id="ViewLot">
+    <h2>{{lot.title|title}}</h2>
+  </div>
+
   <div class="span4 offset1">
     <div id="myCarousel" class="carousel">
       <!-- Carousel items -->
+
       <div class="carousel-inner">
-        {% for img in images %}
-          {% if loop.first %}
-          <div class="item active">
-            <a href="{{ img.original }}" target="_blank"><img src="{{ img.medium }}" /></a>
-            <div class="carousel-caption">
-              <p>{{ lot.title|title }}</p>
-              <p>Click On Image to View Original Size</p>
-            </div>
+        {% for img in images %} {% if loop.first %}
+
+        <div class="item active">
+          <a href="{{%20img.original%20}}" target=
+          "_blank"><img src="{{%20img.medium%20}}"></a>
+
+          <div class="carousel-caption">
+            <p>{{ lot.title|title }}</p>
+
+            <p>Click On Image to View Original Size</p>
           </div>
-          {% else %}
-          <div class="item">
-            <a href="{{ img.original }}" target="_blank"><img src="{{ img.medium }}" /></a>
-            <div class="carousel-caption">
-              <p>{{ lot.title|title }}</p>
-              <p>Click On Image to View Original Size</p>
-            </div>
+        </div>{% else %}
+
+        <div class="item">
+          <a href="{{%20img.original%20}}" target=
+          "_blank"><img src="{{%20img.medium%20}}"></a>
+
+          <div class="carousel-caption">
+            <p>{{ lot.title|title }}</p>
+
+            <p>Click On Image to View Original Size</p>
           </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+        </div>{% endif %} {% endfor %}
+      </div><!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel"
+      data-slide="prev">‹</a> <a class="carousel-control right"
+      href="#myCarousel" data-slide="next">›</a>
     </div>
   </div>
+
   <div class="well span6" id="LogBid">
-      {% if lot.subcategory %}
-        <p><a href="/search/?q={{ lot.category }}">{{ lot.category }}</a> >> <a href="/search/?q={{ lot.subcategory }}">{{ lot.subcategory }}</a></p>
-      {% else %}
-        <p><a href="/search/?q={{ lot.category }}">{{ lot.category }}</a></p>
-      {% endif %}
-        <p>Time Left: <span class="big">{{ lot.time_left }} ({{ lot.session_end }})</span></p>
-      {% if user_is_logged %}
-        {{ form }}      
-      {% else %}
-          <h3>Login Required When Bidding!</h3>
-          {{ form }}    
-  {% endif %}
+    {% if lot.subcategory %}
+
+    <p><a href="/search/?q={{%20lot.category%20}}">{{ lot.category
+    }}</a> &gt;&gt; <a href=
+    "/search/?q={{%20lot.subcategory%20}}">{{ lot.subcategory
+    }}</a></p>{% else %}
+
+    <p><a href="/search/?q={{%20lot.category%20}}">{{ lot.category
+    }}</a></p>{% endif %}
+
+    <p>Time Left: <span class="big">{{ lot.time_left }} ({{
+    lot.session_end }})</span></p>{% if user_is_logged %} {{ form
+    }} {% else %}
+
+    <h3>Login Required When Bidding!</h3>{{ form }} {% endif %}
   </div>
-<div class="span11" id="LotDescription">
-<h3>Description</h3>
-  {{ lot.description }}
-</div>
-<script type="text/javascript">
-    $('.ui-dialog-buttonset').find('button:contains("Cancel")').addClass('cancelButtonClass');
-</script>
-<!-- 
+
+  <div class="span11" id="LotDescription">
+    <h3>Description</h3>{{ lot.description }}
+  </div><script type="text/javascript">
+$('.ui-dialog-buttonset').find('button:contains("Cancel")').addClass('cancelButtonClass');
+  </script><!-- 
     {#
     Page: view_lot.html
     Purpose: View Lot Details from search result or link to lot 
@@ -104,3 +121,5 @@
     Author: Stephen Power
     #}
     -->
+</body>
+</html>

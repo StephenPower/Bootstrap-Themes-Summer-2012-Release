@@ -7,8 +7,8 @@
   {{ sessions }}
 </ul>
 
- {% if not lots %}
-    <div class="span4">
+{% if not lots %}
+<div class="span4">
   <h3 class="title">No lots in this session.</h3>
     </div>
 {% else %}
@@ -36,10 +36,7 @@
     {% endfor %}
     </div>
 {% endif %}
-
-
-
-  
+ 
 <div class="row-fluid">
   <div class="pagination">
     {{ paginator }}
